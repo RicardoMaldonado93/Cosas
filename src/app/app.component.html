@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class='row'  >
+        <div class='col-xl-8 col-sm-12 col-md-7 ' style="padding:inherit; margin-top: 10px">
+            <app-lista (ClienteSeleccionado)="MostrarDetalleCliente($event)" [Clientes]="listadoClientes"></app-lista>
+        </div>
+
+        <div class='col-xl-4 col-sm-12 col-md-5 '  >
+            <app-item [clienteParaMostrar]="clienteParaMostrar"></app-item>
+        </div>
+    
+</div>
+

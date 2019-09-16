@@ -1,0 +1,153 @@
+ <div *ngIf='!clienteParaMostrar'  >
+    <div class= 'card ' id='padding' >
+    <div class = 'card-header' ><h2 style="font-size:25px">Alta Cliente</h2></div>
+      <div class='card-body' style="font-size:14px;">  
+
+        <form [formGroup]="inscripcion" (ngSubmit)="onSubmit(inscripcion.value)">
+
+            <div class="form-row">
+              <div class="form-group col-6 input-group-sm">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control " name="nombre" placeholder="Nombre" formControlName="nombre" pattern="[a-zA-Z ]*" style="font-size:small">
+                <div *ngIf="inscripcion.get('nombre').errors && inscripcion.get('nombre').touched">
+                    <p class="error"  *ngIf="inscripcion.get('nombre').hasError('required')">*El campo no puede estar vacio</p>
+                </div>
+              </div>
+  
+              <div class="form-group col-6 input-group-sm">
+                <label for="razon_social">Razon social</label>
+                <input type="text" class="form-control" name="razon_social" placeholder="razon social" formControlName="razon_social">
+                <div *ngIf="inscripcion.get('razon_social').errors && inscripcion.get('razon_social').touched ">
+                    <p class="error"  *ngIf="inscripcion.get('razon_social').hasError('required')">*El campo no puede estar vacio</p>
+                </div>
+              </div>
+            </div>
+            
+  
+            <div class=" form-row">
+              <div class="form-group col-6 input-group-sm">
+                  <label for="cuit">CUIT</label>
+                  <input type="text" class="form-control" name="cuit" placeholder="cuit" formControlName="cuit" pattern="[a-zA-Z ]*">
+                  <div *ngIf="inscripcion.get('cuit').errors && inscripcion.get('cuit').touched">
+                      <p class="error"  *ngIf="inscripcion.get('cuit').hasError('required')">*El campo no puede estar vacio</p>
+                  </div>
+                </div>
+    
+                <div class="form-group col-6 input-group-sm">
+                  <label for="direccion">Direccion</label>
+                  <input type="text" class="form-control" name="direccion" placeholder="direccion" formControlName="direccion">
+                  <div *ngIf="inscripcion.get('direccion').errors && inscripcion.get('direccion').touched ">
+                      <p class="error"  *ngIf="inscripcion.get('direccion').hasError('required')">*El campo no puede estar vacio</p>
+                  </div>
+                </div>
+          
+  
+            </div>
+
+            <div class=" form-row">
+              <div class="form-group col-6 input-group-sm">
+                  <label for="email">Email</label>
+                  <input type="text" class="form-control" name="email" placeholder="email" formControlName="email" pattern="[a-zA-Z ]*">
+                  <div *ngIf="inscripcion.get('email').errors && inscripcion.get('email').touched">
+                      <p class="error"  *ngIf="inscripcion.get('email').hasError('required')">*El campo no puede estar vacio</p>
+                  </div>
+                </div>
+    
+                <div class="form-group col-6 input-group-sm">
+                  <label for="telefono">Telefono</label>
+                  <input type="text" class="form-control" name="telefono" placeholder="telefono" formControlName="telefono">
+                  <div *ngIf="inscripcion.get('telefono').errors && inscripcion.get('telefono').touched ">
+                      <p class="error"  *ngIf="inscripcion.get('telefono').hasError('required')">*El campo no puede estar vacio</p>
+                  </div>
+                </div>
+          
+               
+            </div>
+            
+            <div class="form-row mt-5"  >
+              <button  style="font-size:15px" type="submit" class="btn btn-primary">Agregar cliente</button>
+             
+          </div>
+          </form>
+      </div>
+    </div>
+</div>
+
+<!--Funcion que valida la visibilidad del formulario para modificar-->
+  <div *ngIf='clienteParaMostrar'>
+    <div class= 'card' style='height:auto; ' id='mobile-padding'>
+            <div class = 'card-header' ><h2 style="font-size:25px">Detalle Cliente #{{clienteParaMostrar.id}}</h2></div>
+                <div class='card-body' style="font-size:14px;">  
+                    <form [formGroup]="inscripcion" (ngSubmit)="onSubmitModificar(inscripcion.value, clienteParaMostrar.id)">
+
+                            <div class="form-row">
+                            <div class="form-group col-6 input-group-sm">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control " name="nombre" placeholder="Nombre" formControlName="nombre" pattern="[a-zA-Z ]*" style="font-size:small" value="{{clienteParaMostrar.nombre}}" >
+                             <!--<div *ngIf="inscripcion.get('nombre').errors && inscripcion.get('nombre').touched">
+                                    <p class="error"  *ngIf="inscripcion.get('nombre').hasError('required')">*El campo no puede estar vacio</p>
+                                </div>-->   
+                            </div>
+                
+                            <div class="form-group col-6 input-group-sm">
+                                <label for="razon_social">Razon social</label>
+                                <input type="text" class="form-control" name="razon_social" placeholder="razon social" formControlName="razon_social" value='{{clienteParaMostrar.razon_social}}'>
+                                <div *ngIf="inscripcion.get('razon_social').errors && inscripcion.get('razon_social').touched ">
+                                    <p class="error"  *ngIf="inscripcion.get('razon_social').hasError('required')">*El campo no puede estar vacio</p>
+                                </div>
+                            </div>
+                            </div>
+                            
+                
+                            <div class=" form-row">
+                            
+                                <div class="form-group col-6 input-group-sm">
+                                        <label for="cuit">CUIT</label>
+                                        <input type="text" class="form-control" name="cuit" placeholder="cuit" formControlName="cuit" pattern="[a-zA-Z ]*" value={{clienteParaMostrar.cuit}}>
+                                        <div *ngIf="inscripcion.get('cuit').errors && inscripcion.get('cuit').touched">
+                                            <p class="error"  *ngIf="inscripcion.get('cuit').hasError('required')">*El campo no puede estar vacio</p>
+                                        </div>
+                                        </div>
+
+                                <div class="form-group col-6 input-group-sm">
+                                <label for="direccion">Direccion</label>
+                                <input type="text" class="form-control" name="direccion" placeholder="direccion" formControlName="direccion" value='{{clienteParaMostrar.direccion}}'>
+                                <div *ngIf="inscripcion.get('direccion').errors && inscripcion.get('direccion').touched ">
+                                    <p class="error"  *ngIf="inscripcion.get('direccion').hasError('required')">*El campo no puede estar vacio</p>
+                                </div>
+                                </div>
+                        
+                
+                            </div>
+                
+                            <div class=" form-row">
+                            <div class="form-group col-6 input-group-sm">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" name="email" placeholder="email" formControlName="email" pattern="[a-zA-Z ]*" value='{{clienteParaMostrar.email}}'>
+                                <div *ngIf="inscripcion.get('email').errors && inscripcion.get('email').touched">
+                                    <p class="error"  *ngIf="inscripcion.get('email').hasError('required')">*El campo no puede estar vacio</p>
+                                </div>
+                                </div>
+                    
+                                <div class="form-group col-6 input-group-sm">
+                                <label for="telefono">Telefono</label>
+                                <input type="text" class="form-control" name="telefono" placeholder="telefono" formControlName="telefono" value='{{clienteParaMostrar.telefono}}'>
+                                <div *ngIf="inscripcion.get('telefono').errors && inscripcion.get('telefono').touched ">
+                                    <p class="error"  *ngIf="inscripcion.get('telefono').hasError('required')">*El campo no puede estar vacio</p>
+                                </div>
+                                </div>
+                        
+                            
+                            </div>
+                            
+                            <div class="form-row mt-5"  >
+                                <button  style="font-size:15px" type="submit" class="btn btn-warning" >Modificar</button> &nbsp;
+                                <button  style="font-size:15px" type="button" class="btn btn-danger" (click)='eliminarRegistro()'>Eliminar</button> &nbsp;
+                                <button  style="font-size:15px" type="button" class="btn btn-success" (click)='mostrarFormulario($event)'>Agregar Nuevo</button>
+                            </div>
+                        
+                    </form>
+                </div>
+    </div>
+</div>
+   

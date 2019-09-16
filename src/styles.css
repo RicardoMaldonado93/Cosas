@@ -1,0 +1,46 @@
+@media screen and (max-width:640px) and ( min-width:320px) {
+    /* reglas CSS */
+    .container{ 
+        
+        align-items: center;
+        background-color: black;
+        
+     }
+     #padding{
+        width: auto;
+        margin-top: 10px;   
+        
+    }
+}
+@media screen and (max-width:1024px) and (min-width:640px) {
+    /* reglas CSS */
+    .container{ 
+       
+        background-color: darkgreen;
+        margin: 5px;
+    
+    }
+    .table-responsive-sm{
+        height: 75%;
+        width: auto;
+        text-justify: 0;
+        
+    }
+
+    #padding{
+        width: 118%;
+        margin-top: 10px;
+       
+        
+    }
+    .form-group-sm{
+        size: 10px;
+    }
+}
+@media screen and (min-width:1920px) {
+    /* reglas CSS */
+    .container{ 
+        
+        
+    }
+}

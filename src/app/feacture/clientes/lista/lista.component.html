@@ -1,0 +1,84 @@
+<!--
+  <table class="table-responsive-xl table-responsive-sm table-dark table-striped table-condensed" >
+    <thead>
+      <tr style="font-size: 20px; text-align: center">
+        <th class='th-sm' scope="col">ID</th>
+        <th class='th-sm' scope="col">Nombre</th>
+        <th class='th-sm' scope="col">CUIT</th>
+        <th class='th-sm' scope="col">Razon Social</th>
+        <th class='th-sm' scope="col">Direccion</th>
+        <th class='th-sm' scope="col">Email</th>
+        <th class='th-sm' scope="col">Telefono</th>
+        <th class='th-sm' scope="col">Ingreso</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center;">
+      <tr class="clickable-row" *ngFor='let Cliente of Clientes' (click)='Mostrar(Cliente)' style=" text-justify: auto ">
+        <th scope="row">{{Cliente.id}}</th>
+        <td>{{Cliente.nombre}}</td>
+        <td>{{Cliente.CUIT}}</td>
+        <td>{{Cliente.razon_social}}</td>
+        <td>{{Cliente.direccion}}</td>
+        <td>{{Cliente.email}}</td>
+        <td>{{Cliente.telefono}}</td>
+        <td>{{Cliente.fecha_registro}}</td>
+      </tr>
+      <tr>
+        
+    </tbody>
+  </table>
+  -->
+<!--  <table role="table" class='table-bordered table-striped' >
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader">ID</th>
+          <th role="columnheader">Nombre</th>
+          <th role="columnheader">Razon Social</th>
+          <th role="columnheader">CUIT</th>
+          <th role="columnheader">Direccion</th>
+          <th role="columnheader">Telefono</th>
+          <th role="columnheader">Email</th>
+          <th role="columnheader">Fecha Ingreso</th>
+        </tr>
+      </thead>
+      <tbody role="rowgroup" >
+        <tr role="row" *ngFor='let cliente of Clientes' style="width:auto" style="border: solid black 2px">
+          <td role="cell">{{cliente.id}}</td>
+          <td role="cell">{{cliente.nombre}}</td>
+          <td role="cell">{{cliente.razon_social}}</td>
+          <td role="cell">{{cliente.CUIT}}</td>
+          <td role="cell">{{cliente.direccion}}</td>
+          <td role="cell">{{cliente.telefono}}</td>
+          <td role="cell">{{cliente.email}}</td>
+          <td role="cell">{{cliente.fecha_registro}}</td>
+        </tr>
+      </tbody>
+    </table>table-bordered table-striped table-condensed 
+--> 
+<table class=" table-responsive-sm table-responsive-xl table-bordered table-striped table-condensed " id='no-more-tables' style="background-color: white; font-size:small;  " >
+    <thead >
+      <tr>
+        <th class='numeric'>#</th>
+        <th class='numeric'>Nombre</th>
+        <th class='numeric'>Razon Social</th>
+        <th class='numeric'>CUIT</th>
+        <th class='numeric'>Direccion</th>
+        <th class='numeric'>Telefono</th>
+        <th class='numeric'>Email</th>
+        <th class='numeric'>Fecha Ingreso</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor='let cliente of Clientes' class='clickable-row' (click)='Mostrar(cliente)' >
+        <td data-title='ID' class='numeric'>{{cliente.id}}</td>
+        <td data-title='Nombre' class='numeric'>{{cliente.nombre}}</td>
+        <td data-title='Razon Social' class='numeric'>{{cliente.razon_social}}</td>
+        <td data-title='CUIT' class='numeric'>{{cliente.cuit}}</td>
+        <td data-title='Direccion' class='numeric'>{{cliente.direccion}}</td>
+        <td data-title='Telefono' class='numeric'>{{cliente.telefono}}</td>
+        <td data-title='Email' class="numeric">{{cliente.email}}</td>
+        <td data-title='Fecha Ingreso' class='numeric'>{{cliente.fecha_registro}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
